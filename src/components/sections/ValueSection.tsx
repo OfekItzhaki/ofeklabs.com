@@ -19,27 +19,10 @@ const values = [
   },
 ];
 
-const stats = [
-  { value: '5+', label: 'Active teams' },
-  { value: '1,000+', label: 'Schedules created' },
-  { value: '99.9%', label: 'Uptime' },
-];
-
 export function ValueSection() {
   return (
     <section className="py-24 relative">
-      {/* Stats bar */}
       <Container>
-        <div className="mt-16 mb-20 grid grid-cols-3 gap-4 max-w-lg mx-auto text-center">
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <div className="text-2xl md:text-3xl font-bold text-[var(--foreground)]">{stat.value}</div>
-              <div className="text-xs md:text-sm text-[var(--muted)] mt-1">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Value cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {values.map((value, index) => (
             <ScrollReveal key={value.title} delay={index * 100}>
