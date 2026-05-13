@@ -1,4 +1,4 @@
-import { createClient } from 'next-sanity';
+import { createClient, type SanityClient } from 'next-sanity';
 
 export const config = {
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
@@ -7,7 +7,11 @@ export const config = {
     useCdn: process.env.NODE_ENV === 'production',
 };
 
-export const client = createClient(config);
+const hasValidProjectId = config.projectId && config.projectId !== 'placeholder';
+
+export const client: SanityClient | null = hasValidProjectId
+    ? createClient(config)
+    : null;
 
 /** Timeout duration for Sanity requests (5 seconds) */
 const SANITY_TIMEOUT_MS = 5000;
@@ -37,7 +41,7 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
  * Fetch all products from Sanity CMS
  */
 export async function getProducts() {
-    if (!config.projectId || config.projectId === 'placeholder') return [];
+    if (!client) return [];
 
     try {
         const products = await withTimeout(
@@ -69,7 +73,7 @@ export async function getProducts() {
  * Bypasses CDN to ensure fresh data on every request
  */
 export async function getSiteConfig() {
-    if (!config.projectId || config.projectId === 'placeholder') return null;
+    if (!client) return null;
 
     try {
         const data = await withTimeout(
