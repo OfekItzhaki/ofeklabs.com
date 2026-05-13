@@ -18,7 +18,7 @@ export default function AboutSection({ config, headings }: AboutSectionProps) {
   const title = headings?.aboutTitle || 'Who we are';
 
   return (
-    <section id="about" className="py-24 relative section-alt">
+    <section id="about" className="py-24 relative">
       <div className="section-divider" aria-hidden="true" />
       <Container>
         <ScrollReveal>

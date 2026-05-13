@@ -68,7 +68,7 @@ export default function ContactSection({ config, headings }: ContactSectionProps
     'w-full rounded-lg border border-[var(--card-border)] bg-[var(--card)] px-4 py-3 text-[var(--foreground)] placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-colors duration-200';
 
   return (
-    <section id="contact" className="py-24 relative section-alt">
+    <section id="contact" className="py-24 relative">
       <div className="section-divider" aria-hidden="true" />
       <Container>
         <ScrollReveal>

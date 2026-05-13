@@ -17,7 +17,7 @@ export function HeroSection({ config }: HeroSectionProps) {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden grid-pattern"
+      className="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden"
     >
       {/* Background glow */}
       <div className="hero-glow" aria-hidden="true" />
