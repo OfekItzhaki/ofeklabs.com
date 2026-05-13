@@ -25,12 +25,12 @@ const DEFAULT_SITE_CONFIG: DefaultSiteConfig = {
         linkedin: "https://linkedin.com/in/ofekitzhaki",
     },
     hero: {
-        headline: "Software that works as hard as you do",
-        subheadline: "We build tools that solve real-world problems.",
-        ctaText: "Explore Products",
+        headline: "Independent software lab. Production-grade systems.",
+        subheadline: "OfekLabs designs and ships complete software products — from authentication and scheduling to workflow platforms. Built for reliability, not demos.",
+        ctaText: "View Products",
         ctaTarget: "#products",
     },
-    description: "OfekLabs is all about innovation. We focus on quality, reliability, and seamless workflows that solve real-world problems.",
+    description: "OfekLabs is a one-person software lab focused on building production-grade SaaS products and systems. Every product is designed, built, and shipped end-to-end with the same standards expected from a well-run engineering team.",
     legal: {
         privacy: "",
         terms: "",

@@ -1,9 +1,8 @@
 import { Navigation } from '@/components/sections/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { ValueSection } from '@/components/sections/ValueSection';
 import { ProductsSection } from '@/components/sections/ProductsSection';
-import FlagshipSection from '@/components/sections/FlagshipSection';
-import AboutSection from '@/components/sections/AboutSection';
+import { CapabilitiesSection } from '@/components/sections/CapabilitiesSection';
+import { BuilderSection } from '@/components/sections/BuilderSection';
 import ContactSection from '@/components/sections/ContactSection';
 import { Footer } from '@/components/sections/Footer';
 import { getSiteConfiguration, getProductsList } from '@/config/site-content';
@@ -16,17 +15,15 @@ export default async function HomePage() {
   const products = await getProductsList(siteConfig);
 
   const sortedProducts = sortProducts(products);
-  const flagship = sortedProducts.length > 0 ? sortedProducts[0] : null;
 
   return (
     <>
       <Navigation config={siteConfig} />
       <main>
         <HeroSection config={siteConfig} />
-        <ValueSection />
-        <ProductsSection products={sortedProducts} headings={siteConfig.sectionHeadings} />
-        {flagship && <FlagshipSection product={flagship} />}
-        <AboutSection config={siteConfig} headings={siteConfig.sectionHeadings} />
+        <ProductsSection products={sortedProducts} />
+        <CapabilitiesSection />
+        <BuilderSection />
         <ContactSection config={siteConfig} headings={siteConfig.sectionHeadings} />
       </main>
       <Footer config={siteConfig} />
