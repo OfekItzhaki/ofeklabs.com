@@ -18,7 +18,7 @@ export function Footer({ config }: FooterProps) {
   const hasTerms = config.legal?.terms && config.legal.terms.trim().length > 0;
 
   return (
-    <footer className="py-16 mt-12">
+    <footer className="py-16 mt-12 border-t border-[var(--card-border)] bg-[var(--card)]">
       <Container>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Company info */}
@@ -64,7 +64,7 @@ export function Footer({ config }: FooterProps) {
                 {hasPrivacy && (
                   <a
                     href={config.legal!.privacy!}
-                    className="text-xs text-zinc-500 transition-colors duration-200 hover:text-zinc-300"
+                    className="text-xs text-[var(--muted)] transition-colors duration-200 hover:text-[var(--foreground)]"
                   >
                     Privacy Policy
                   </a>
@@ -72,7 +72,7 @@ export function Footer({ config }: FooterProps) {
                 {hasTerms && (
                   <a
                     href={config.legal!.terms!}
-                    className="text-xs text-zinc-500 transition-colors duration-200 hover:text-zinc-300"
+                    className="text-xs text-[var(--muted)] transition-colors duration-200 hover:text-[var(--foreground)]"
                   >
                     Terms of Service
                   </a>
@@ -81,7 +81,7 @@ export function Footer({ config }: FooterProps) {
             )}
 
             {/* Copyright */}
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-[var(--muted)]">
               {formatCopyright(config.name)}
             </p>
           </div>

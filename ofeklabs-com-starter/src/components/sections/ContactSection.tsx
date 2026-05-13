@@ -121,7 +121,7 @@ export default function ContactSection({ config, headings }: ContactSectionProps
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="mb-1.5 block text-sm font-medium text-zinc-300"
+                    className="mb-1.5 block text-sm font-medium text-[var(--foreground)]"
                   >
                     Name
                   </label>
@@ -143,7 +143,7 @@ export default function ContactSection({ config, headings }: ContactSectionProps
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="mb-1.5 block text-sm font-medium text-zinc-300"
+                    className="mb-1.5 block text-sm font-medium text-[var(--foreground)]"
                   >
                     Email
                   </label>
@@ -167,7 +167,7 @@ export default function ContactSection({ config, headings }: ContactSectionProps
                 <div>
                   <label
                     htmlFor="contact-message"
-                    className="mb-1.5 block text-sm font-medium text-zinc-300"
+                    className="mb-1.5 block text-sm font-medium text-[var(--foreground)]"
                   >
                     Message
                   </label>

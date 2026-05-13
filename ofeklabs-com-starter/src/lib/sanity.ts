@@ -37,7 +37,7 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
  * Fetch all products from Sanity CMS
  */
 export async function getProducts() {
-    if (!config.projectId) return [];
+    if (!config.projectId || config.projectId === 'placeholder') return [];
 
     try {
         const products = await withTimeout(
@@ -69,7 +69,7 @@ export async function getProducts() {
  * Bypasses CDN to ensure fresh data on every request
  */
 export async function getSiteConfig() {
-    if (!config.projectId) return null;
+    if (!config.projectId || config.projectId === 'placeholder') return null;
 
     try {
         const data = await withTimeout(

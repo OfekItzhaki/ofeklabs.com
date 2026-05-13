@@ -26,7 +26,7 @@ const DEFAULT_SITE_CONFIG: DefaultSiteConfig = {
     },
     hero: {
         headline: "Software that works as hard as you do",
-        subheadline: "We build tools for productivity, automation, and workflow management.",
+        subheadline: "We build tools that solve real-world problems.",
         ctaText: "Explore Products",
         ctaTarget: "#products",
     },

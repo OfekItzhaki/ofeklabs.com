@@ -46,7 +46,7 @@ export function HeroSection({ config }: HeroSectionProps) {
                 </Button>
                 <a
                   href="#about"
-                  className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200"
+                  className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-200"
                 >
                   Learn more →
                 </a>
