@@ -16,29 +16,37 @@ export function HeroSection({ config }: HeroSectionProps) {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center pt-20"
+      className="relative min-h-[85vh] flex items-center justify-center pt-20 overflow-hidden"
     >
+      {/* Background glow */}
+      <div className="hero-glow" aria-hidden="true" />
+
       <Container>
         <FadeIn duration={400}>
-          <div className="flex flex-col items-center text-center space-y-6">
+          <div className="relative z-10 flex flex-col items-center text-center space-y-8">
             {headline && (
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.1]">
                 {headline}
               </h1>
             )}
             {subheadline && (
-              <p className="text-lg md:text-xl text-[#A1A1AA] max-w-2xl">
+              <p className="text-lg md:text-xl text-zinc-400 max-w-2xl leading-relaxed">
                 {subheadline}
               </p>
             )}
             {ctaText && ctaTarget && (
-              <Button href={ctaTarget} size="lg">
-                {ctaText}
-              </Button>
+              <div className="pt-2">
+                <Button href={ctaTarget} size="lg">
+                  {ctaText}
+                </Button>
+              </div>
             )}
           </div>
         </FadeIn>
       </Container>
+
+      {/* Bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--background)] to-transparent pointer-events-none" />
     </section>
   );
 }

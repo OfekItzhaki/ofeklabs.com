@@ -57,13 +57,19 @@ export default function ContactSection({ config }: ContactSectionProps) {
     'w-full rounded-lg border border-[var(--card-border)] bg-[var(--card)] px-4 py-3 text-[var(--foreground)] placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-colors duration-200';
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-24 relative">
+      <div className="section-divider mb-24" aria-hidden="true" />
       <Container>
         <ScrollReveal>
           <div className="mx-auto max-w-2xl">
-            <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">
-              Get in Touch
-            </h2>
+            <div className="text-center">
+              <p className="text-sm font-medium uppercase tracking-widest text-[var(--accent)] mb-4">
+                Contact
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Get in Touch
+              </h2>
+            </div>
 
             <div className="mt-8 flex flex-col items-center gap-4">
               {config.contact.email && (

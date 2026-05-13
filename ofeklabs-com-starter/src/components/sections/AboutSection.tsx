@@ -15,14 +15,18 @@ export default function AboutSection({ config }: AboutSectionProps) {
   const text = truncateToSentences(config.description, 3);
 
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-24 relative">
+      <div className="section-divider mb-24" aria-hidden="true" />
       <Container>
         <ScrollReveal>
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <p className="text-sm font-medium uppercase tracking-widest text-[var(--accent)] mb-4">
               About
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Who we are
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
               {text}
             </p>
           </div>
