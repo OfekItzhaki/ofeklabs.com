@@ -81,8 +81,25 @@ export async function getSiteConfiguration(): Promise<SiteConfig> {
 }
 
 /**
+ * Fallback products shown when no CMS or subdomain data is available.
+ */
+const FALLBACK_PRODUCTS: Product[] = [
+    {
+        id: 'shifter',
+        name: 'Shifter',
+        tagline: 'Automated shift scheduling for teams',
+        description: 'Constraint-optimization engine that generates fair, balanced shift schedules. Handles minimum rest, qualifications, personal preferences, and workload distribution automatically.',
+        status: 'active',
+        badge: 'Live',
+        url: 'https://shifter.ofeklabs.com',
+        features: ['CP-SAT solver', 'Multi-tenant', 'Mobile-first', 'Real-time sync'],
+        order: 1,
+    },
+];
+
+/**
  * Get products from Sanity CMS, merged with auto-discovered subdomain products.
- * Sanity products take priority (by ID) over scraped ones.
+ * Falls back to hardcoded products when no data sources are available.
  */
 export async function getProductsList(config?: SiteConfig): Promise<Product[]> {
     const [sanityProducts, scrapedProducts] = await Promise.all([
@@ -96,7 +113,14 @@ export async function getProductsList(config?: SiteConfig): Promise<Product[]> {
     const sanityIds = new Set(products.map((p: Product) => p.id));
     const uniqueScraped = scrapedProducts.filter((p) => !sanityIds.has(p.id));
 
-    return [...products, ...uniqueScraped];
+    const merged = [...products, ...uniqueScraped];
+
+    // If no products from any source, use fallback
+    if (merged.length === 0) {
+        return FALLBACK_PRODUCTS;
+    }
+
+    return merged;
 }
 
 // Export for backward compatibility and type reference

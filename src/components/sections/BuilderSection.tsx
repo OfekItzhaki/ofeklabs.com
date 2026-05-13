@@ -9,18 +9,27 @@ export function BuilderSection() {
           <div className="max-w-2xl">
             <p className="text-sm font-mono text-[var(--accent)] mb-3">// builder</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] tracking-tight mb-6">
-              One engineer. Complete systems.
+              One engineer. Full stack. End to end.
             </h2>
             <div className="space-y-4 text-[var(--muted)] leading-relaxed">
               <p>
-                OfekLabs is a one-person software lab. I design, build, and ship production systems end-to-end — from database schema to deployed product.
+                OfekLabs is a one-person software lab. I architect, build, and operate production systems — from database schema and API design to deployment pipelines and monitoring.
               </p>
               <p>
-                My focus is backend-heavy full-stack work: multi-tenant architectures, scheduling algorithms, authentication flows, and the infrastructure that keeps it all running. I care about code that&apos;s maintainable, systems that scale, and products that actually solve problems.
+                Backend-heavy by nature: multi-tenant SaaS, constraint-solving algorithms, auth systems, real-time infrastructure. Every product ships with the same rigor you&apos;d expect from a well-staffed engineering team.
               </p>
-              <p>
-                Every product here is built with the same standards I&apos;d expect from a well-run engineering team — because that&apos;s the bar, regardless of team size.
-              </p>
+            </div>
+
+            {/* Tech identity markers */}
+            <div className="mt-8 flex flex-wrap gap-2">
+              {['TypeScript', 'Next.js', 'Node.js', 'PostgreSQL', 'Redis', 'Docker', 'Vercel', 'Railway'].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-1 text-xs font-mono text-[var(--muted)] border border-[var(--card-border)] rounded-md"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
         </ScrollReveal>

@@ -24,13 +24,13 @@ export function HeroSection({ config }: HeroSectionProps) {
 
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--foreground)] leading-[1.1] mb-6">
-              Independent software lab.<br />
-              <span className="text-[var(--muted)]">Production-grade systems.</span>
+              Software lab.<br />
+              <span className="text-[var(--muted)]">Systems that ship.</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-[var(--muted)] max-w-xl leading-relaxed mb-10">
-              OfekLabs designs and ships complete software products — from authentication and scheduling to workflow platforms. Built for reliability, not demos.
+              OfekLabs builds production-grade SaaS products and backend systems — scheduling engines, multi-tenant platforms, authentication flows. Designed for real operations, not pitch decks.
             </p>
 
             {/* CTAs */}

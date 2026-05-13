@@ -71,26 +71,26 @@ export default function ContactSection({ config, headings }: ContactSectionProps
     <section id="contact" className="py-24 relative">
       <Container>
         <ScrollReveal>
-          <div className="mt-16 mx-auto max-w-2xl">
-            <div className="text-center">
-              <p className="text-sm font-medium uppercase tracking-widest text-[var(--accent)] mb-4">
-                {headings?.contactLabel || 'Contact'}
-              </p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                {headings?.contactTitle || 'Get in Touch'}
+          <div className="mx-auto max-w-2xl">
+            <div className="mb-8">
+              <p className="text-sm font-mono text-[var(--accent)] mb-3">// contact</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+                Get in touch
               </h2>
+              <p className="mt-3 text-[var(--muted)]">
+                Have a project in mind, or want to discuss a technical problem? Reach out.
+              </p>
             </div>
 
-            <div className="mt-8 flex flex-col items-center gap-4">
+            <div className="mt-6 flex items-center gap-4">
               {config.contact.email && (
                 <a
                   href={`mailto:${config.contact.email}`}
-                  className="text-[var(--accent)] hover:underline"
+                  className="text-sm font-mono text-[var(--accent)] hover:underline"
                 >
                   {config.contact.email}
                 </a>
               )}
-
               <SocialLinks socials={config.socials} />
             </div>
 
