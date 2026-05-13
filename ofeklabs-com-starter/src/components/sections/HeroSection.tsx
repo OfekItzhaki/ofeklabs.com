@@ -18,12 +18,8 @@ export function HeroSection({ config }: HeroSectionProps) {
       id="hero"
       className="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden"
     >
-      {/* Background glow */}
-      <div className="hero-glow" aria-hidden="true" />
-
-      {/* Gradient orbs for visual interest */}
-      <div className="absolute top-1/4 -left-32 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl" aria-hidden="true" />
-      <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl" aria-hidden="true" />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--background)] to-transparent pointer-events-none" />
 
       <Container>
         <FadeIn duration={400}>
@@ -63,8 +59,6 @@ export function HeroSection({ config }: HeroSectionProps) {
         </FadeIn>
       </Container>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--background)] to-transparent pointer-events-none" />
     </section>
   );
 }

@@ -24,12 +24,14 @@
 
 html {
   scroll-behavior: smooth;
+  min-height: 100%;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 
 /* Grid pattern background - adapts to theme */
@@ -42,23 +44,22 @@ body {
 
 [data-theme="light"] .grid-pattern {
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
 /* Hero gradient glow */
 .hero-glow {
-  position: absolute;
-  top: 15%;
+  position: fixed;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   width: 80%;
   max-width: 800px;
-  height: 400px;
+  height: 500px;
   background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 70%);
   pointer-events: none;
-  z-index: 0;
 }
 
 [data-theme="light"] .hero-glow {

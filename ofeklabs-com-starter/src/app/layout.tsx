@@ -53,7 +53,8 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased grid-pattern">
-        <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+          <div className="hero-glow" aria-hidden="true" />
           <Constellation />
         </div>
         <div className="relative z-10">

@@ -28,8 +28,6 @@ const stats = [
 export function ValueSection() {
   return (
     <section className="py-24 relative">
-      <div className="section-divider" aria-hidden="true" />
-
       {/* Stats bar */}
       <Container>
         <div className="mt-16 mb-20 grid grid-cols-3 gap-4 max-w-lg mx-auto text-center">

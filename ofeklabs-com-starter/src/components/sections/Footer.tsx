@@ -18,7 +18,7 @@ export function Footer({ config }: FooterProps) {
   const hasTerms = config.legal?.terms && config.legal.terms.trim().length > 0;
 
   return (
-    <footer className="border-t border-[var(--card-border)] bg-[var(--card)] py-16 mt-12">
+    <footer className="py-16 mt-12">
       <Container>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Company info */}

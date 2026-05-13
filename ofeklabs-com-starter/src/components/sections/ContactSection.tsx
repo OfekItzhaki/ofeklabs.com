@@ -69,7 +69,6 @@ export default function ContactSection({ config, headings }: ContactSectionProps
 
   return (
     <section id="contact" className="py-24 relative">
-      <div className="section-divider" aria-hidden="true" />
       <Container>
         <ScrollReveal>
           <div className="mt-16 mx-auto max-w-2xl">

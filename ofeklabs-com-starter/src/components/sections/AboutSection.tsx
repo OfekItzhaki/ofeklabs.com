@@ -19,7 +19,6 @@ export default function AboutSection({ config, headings }: AboutSectionProps) {
 
   return (
     <section id="about" className="py-24 relative">
-      <div className="section-divider" aria-hidden="true" />
       <Container>
         <ScrollReveal>
           <div className="mt-16 text-center max-w-3xl mx-auto">
