@@ -2,7 +2,6 @@ import type { SiteConfig } from '@/types';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { FadeIn } from '@/components/motion/FadeIn';
-import { Constellation } from '@/components/ui/Constellation';
 
 interface HeroSectionProps {
   config: SiteConfig;
@@ -21,9 +20,6 @@ export function HeroSection({ config }: HeroSectionProps) {
     >
       {/* Background glow */}
       <div className="hero-glow" aria-hidden="true" />
-
-      {/* Constellation animation */}
-      <Constellation />
 
       {/* Gradient orbs for visual interest */}
       <div className="absolute top-1/4 -left-32 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl" aria-hidden="true" />

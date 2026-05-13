@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans';
 import { getSiteConfiguration } from '@/config/site-content';
 import { getBaseUrl } from '@/config/urls';
 import { truncate } from '@/lib/utils';
+import { Constellation } from '@/components/ui/Constellation';
 import './globals.css';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -51,7 +52,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased grid-pattern">{children}</body>
+      <body className="antialiased grid-pattern">
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <Constellation />
+        </div>
+        <div className="relative z-10">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

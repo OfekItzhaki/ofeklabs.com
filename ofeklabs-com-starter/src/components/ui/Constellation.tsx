@@ -171,7 +171,8 @@ export function Constellation() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="fixed inset-0 w-full h-full pointer-events-none"
+      style={{ width: '100vw', height: '100vh' }}
       aria-hidden="true"
     />
   );
