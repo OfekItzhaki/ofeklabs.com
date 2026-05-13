@@ -19,17 +19,17 @@ export default function AboutSection({ config, headings }: AboutSectionProps) {
 
   return (
     <section id="about" className="py-24 relative">
-      <div className="section-divider mb-24" aria-hidden="true" />
+      <div className="section-divider" aria-hidden="true" />
       <Container>
         <ScrollReveal>
-          <div className="text-center">
+          <div className="mt-16 text-center max-w-3xl mx-auto">
             <p className="text-sm font-medium uppercase tracking-widest text-[var(--accent)] mb-4">
               {label}
             </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-[var(--foreground)]">
               {title}
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
+            <p className="mt-8 text-lg leading-relaxed text-[var(--muted)]">
               {text}
             </p>
           </div>

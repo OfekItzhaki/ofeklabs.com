@@ -1,5 +1,6 @@
 import { Navigation } from '@/components/sections/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
+import { ValueSection } from '@/components/sections/ValueSection';
 import { ProductsSection } from '@/components/sections/ProductsSection';
 import FlagshipSection from '@/components/sections/FlagshipSection';
 import AboutSection from '@/components/sections/AboutSection';
@@ -22,6 +23,7 @@ export default async function HomePage() {
       <Navigation config={siteConfig} />
       <main>
         <HeroSection config={siteConfig} />
+        <ValueSection />
         <ProductsSection products={sortedProducts} headings={siteConfig.sectionHeadings} />
         {flagship && <FlagshipSection product={flagship} />}
         <AboutSection config={siteConfig} headings={siteConfig.sectionHeadings} />

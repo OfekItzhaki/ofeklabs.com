@@ -8,6 +8,18 @@
   --accent-hover: #2563EB;
   --card: #18181B;
   --card-border: #27272A;
+  --card-hover-border: #3f3f46;
+}
+
+[data-theme="light"] {
+  --background: #FAFAFA;
+  --foreground: #09090B;
+  --muted: #71717A;
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+  --card: #FFFFFF;
+  --card-border: #E4E4E7;
+  --card-hover-border: #A1A1AA;
 }
 
 html {
@@ -17,30 +29,40 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Subtle noise texture overlay for depth */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  opacity: 0.015;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+/* Grid pattern background - adapts to theme */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(128, 128, 128, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+[data-theme="light"] .grid-pattern {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 
 /* Hero gradient glow */
 .hero-glow {
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
-  max-width: 600px;
-  height: 300px;
-  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  width: 80%;
+  max-width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 70%);
   pointer-events: none;
   z-index: 0;
+}
+
+[data-theme="light"] .hero-glow {
+  background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0.03) 40%, transparent 70%);
 }
 
 /* Section separator gradient */
@@ -49,17 +71,16 @@ body::before {
   background: linear-gradient(90deg, transparent, var(--card-border), transparent);
 }
 
-/* Subtle top-fade for sections */
-.section-fade-top {
+/* Card hover glow effect */
+.card-glow {
   position: relative;
+  transition: border-color 0.3s ease;
 }
-.section-fade-top::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, rgba(24, 24, 27, 0.5), transparent);
-  pointer-events: none;
+.card-glow:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Subtle section background alternation */
+.section-alt {
+  background-color: color-mix(in srgb, var(--card) 30%, var(--background));
 }

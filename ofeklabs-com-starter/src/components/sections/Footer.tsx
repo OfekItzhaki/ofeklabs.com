@@ -18,26 +18,26 @@ export function Footer({ config }: FooterProps) {
   const hasTerms = config.legal?.terms && config.legal.terms.trim().length > 0;
 
   return (
-    <footer className="border-t border-[var(--card-border)] bg-[var(--card)]/30 py-16 mt-12">
+    <footer className="border-t border-[var(--card-border)] bg-[var(--card)] py-16 mt-12">
       <Container>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Company info */}
           <div>
-            <h3 className="text-lg font-semibold text-white">{config.name}</h3>
+            <h3 className="text-lg font-semibold text-[var(--foreground)]">{config.name}</h3>
             {config.tagline && (
-              <p className="mt-2 text-sm text-zinc-400">{config.tagline}</p>
+              <p className="mt-2 text-sm text-[var(--muted)]">{config.tagline}</p>
             )}
           </div>
 
           {/* Navigation links */}
           <div>
-            <h4 className="text-sm font-semibold text-white">Navigation</h4>
+            <h4 className="text-sm font-semibold text-[var(--foreground)]">Navigation</h4>
             <ul className="mt-3 space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-zinc-400 transition-colors duration-200 hover:text-white"
+                    className="text-sm text-[var(--muted)] transition-colors duration-200 hover:text-[var(--foreground)]"
                   >
                     {link.label}
                   </a>
@@ -48,7 +48,7 @@ export function Footer({ config }: FooterProps) {
 
           {/* Social links */}
           <div>
-            <h4 className="text-sm font-semibold text-white">Connect</h4>
+            <h4 className="text-sm font-semibold text-[var(--foreground)]">Connect</h4>
             <div className="mt-3">
               <SocialLinks socials={config.socials} />
             </div>

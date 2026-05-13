@@ -34,7 +34,7 @@ export default function ContactSection({ config, headings }: ContactSectionProps
     }
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitStatus('idle');
 
@@ -69,10 +69,10 @@ export default function ContactSection({ config, headings }: ContactSectionProps
 
   return (
     <section id="contact" className="py-24 relative">
-      <div className="section-divider mb-24" aria-hidden="true" />
+      <div className="section-divider" aria-hidden="true" />
       <Container>
         <ScrollReveal>
-          <div className="mx-auto max-w-2xl">
+          <div className="mt-16 mx-auto max-w-2xl">
             <div className="text-center">
               <p className="text-sm font-medium uppercase tracking-widest text-[var(--accent)] mb-4">
                 {headings?.contactLabel || 'Contact'}

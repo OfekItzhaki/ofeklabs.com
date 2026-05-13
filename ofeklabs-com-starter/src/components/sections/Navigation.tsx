@@ -1,6 +1,7 @@
 import type { SiteConfig, NavLink } from '@/types';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import MobileMenu from '@/components/motion/MobileMenu';
 
 interface NavigationProps {
@@ -43,7 +44,8 @@ export function Navigation({ config }: NavigationProps) {
         </nav>
 
         {/* Desktop CTA button */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <Button href={ctaHref} size="sm">
             {ctaText}
           </Button>

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -16,25 +15,30 @@ export function FadeIn({
   delay = 0,
   className,
 }: FadeInProps) {
-  const shouldReduceMotion = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Default visible to prevent flash
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
 
-  if (shouldReduceMotion || !mounted) {
-    return <div className={className}>{children}</div>;
-  }
+    // Start hidden, then fade in
+    setIsVisible(false);
+    const timer = setTimeout(() => setIsVisible(true), delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: duration / 1000, delay: delay / 1000, ease: 'easeOut' }}
+    <div
       className={className}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transition: `opacity ${duration}ms ease-out`,
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
