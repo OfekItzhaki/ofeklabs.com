@@ -95,6 +95,14 @@ export async function getSiteConfig() {
                         subheadline,
                         ctaText,
                         ctaTarget
+                    },
+                    subdomains[] {
+                        slug,
+                        enabled,
+                        overrideName,
+                        overrideTagline,
+                        status,
+                        order
                     }
                 }`,
                 {},

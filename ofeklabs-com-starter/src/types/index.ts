@@ -25,6 +25,17 @@ export interface SiteConfig {
     ctaText: string;
     ctaTarget: string;
   };
+  subdomains?: SubdomainEntry[];
+}
+
+/** A subdomain entry managed in Sanity CMS */
+export interface SubdomainEntry {
+  slug: string;
+  enabled: boolean;
+  overrideName?: string;
+  overrideTagline?: string;
+  status?: 'active' | 'beta' | 'dev' | 'coming-soon';
+  order?: number;
 }
 
 /** Product document from Sanity CMS */

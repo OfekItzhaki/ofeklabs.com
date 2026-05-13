@@ -88,5 +88,75 @@ export const siteConfig = {
                 },
             ],
         },
+        {
+            name: 'subdomains',
+            title: 'Product Subdomains',
+            type: 'array',
+            description: 'List of subdomains to auto-discover products from (e.g., "shifter" for shifter.ofeklabs.com)',
+            of: [
+                {
+                    type: 'object',
+                    fields: [
+                        {
+                            name: 'slug',
+                            title: 'Subdomain Slug',
+                            type: 'string',
+                            description: 'Just the subdomain part (e.g., "shifter")',
+                            validation: (Rule: any) => Rule.required().regex(/^[a-z0-9-]+$/, { name: 'slug', invert: false }),
+                        },
+                        {
+                            name: 'enabled',
+                            title: 'Enabled',
+                            type: 'boolean',
+                            initialValue: true,
+                        },
+                        {
+                            name: 'overrideName',
+                            title: 'Override Display Name',
+                            type: 'string',
+                            description: 'Optional: override the scraped product name',
+                        },
+                        {
+                            name: 'overrideTagline',
+                            title: 'Override Tagline',
+                            type: 'string',
+                            description: 'Optional: override the scraped tagline',
+                        },
+                        {
+                            name: 'status',
+                            title: 'Product Status',
+                            type: 'string',
+                            options: {
+                                list: [
+                                    { title: 'Active', value: 'active' },
+                                    { title: 'Beta', value: 'beta' },
+                                    { title: 'In Development', value: 'dev' },
+                                    { title: 'Coming Soon', value: 'coming-soon' },
+                                ],
+                            },
+                            initialValue: 'active',
+                        },
+                        {
+                            name: 'order',
+                            title: 'Display Order',
+                            type: 'number',
+                            description: 'Lower numbers appear first',
+                        },
+                    ],
+                    preview: {
+                        select: {
+                            title: 'slug',
+                            subtitle: 'status',
+                        },
+                        prepare({ title, subtitle }: { title: string; subtitle: string }) {
+                            return {
+                                title: `${title}.ofeklabs.com`,
+                                subtitle: subtitle || 'active',
+                            };
+                        },
+                    },
+                },
+            ],
+        },
     ],
 };
