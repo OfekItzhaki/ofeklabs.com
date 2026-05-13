@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { SiteConfig, ContactFormData, ContactFormErrors } from '@/types';
+import type { SiteConfig, ContactFormData, ContactFormErrors, SectionHeadings } from '@/types';
 import { validateContactForm } from '@/lib/utils';
 import { Container } from '@/components/ui/Container';
 import { SocialLinks } from '@/components/ui/SocialLinks';
@@ -9,9 +9,10 @@ import ScrollReveal from '@/components/motion/ScrollReveal';
 
 interface ContactSectionProps {
   config: SiteConfig;
+  headings?: SectionHeadings;
 }
 
-export default function ContactSection({ config }: ContactSectionProps) {
+export default function ContactSection({ config, headings }: ContactSectionProps) {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -45,6 +46,16 @@ export default function ContactSection({ config }: ContactSectionProps) {
 
     // Simulate submission — in production this would call an API
     try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send');
+      }
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
       setErrors({});
@@ -64,10 +75,10 @@ export default function ContactSection({ config }: ContactSectionProps) {
           <div className="mx-auto max-w-2xl">
             <div className="text-center">
               <p className="text-sm font-medium uppercase tracking-widest text-[var(--accent)] mb-4">
-                Contact
+                {headings?.contactLabel || 'Contact'}
               </p>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Get in Touch
+                {headings?.contactTitle || 'Get in Touch'}
               </h2>
             </div>
 
@@ -89,7 +100,7 @@ export default function ContactSection({ config }: ContactSectionProps) {
                 className="mt-8 rounded-lg border border-green-500/30 bg-green-500/10 p-4 text-center text-green-400"
                 role="status"
               >
-                Thank you! Your message has been sent successfully.
+                {headings?.contactSuccessMessage || 'Thank you! Your message has been sent successfully.'}
               </div>
             )}
 
@@ -98,7 +109,7 @@ export default function ContactSection({ config }: ContactSectionProps) {
                 className="mt-8 rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-center text-red-400"
                 role="alert"
               >
-                Something went wrong. Please try again later.
+                {headings?.contactErrorMessage || 'Something went wrong. Please try again later.'}
               </div>
             )}
 
@@ -182,7 +193,7 @@ export default function ContactSection({ config }: ContactSectionProps) {
                   type="submit"
                   className="min-h-[44px] min-w-[44px] rounded-lg bg-[var(--accent)] px-5 py-2.5 font-medium text-white transition-colors duration-200 hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] cursor-pointer"
                 >
-                  Send Message
+                  {headings?.contactSubmitText || 'Send Message'}
                 </button>
               </form>
             )}

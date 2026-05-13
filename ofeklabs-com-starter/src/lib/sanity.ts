@@ -96,6 +96,20 @@ export async function getSiteConfig() {
                         ctaText,
                         ctaTarget
                     },
+                    navLinks[] {
+                        label,
+                        href
+                    },
+                    sectionHeadings {
+                        productsTitle,
+                        aboutLabel,
+                        aboutTitle,
+                        contactLabel,
+                        contactTitle,
+                        contactSubmitText,
+                        contactSuccessMessage,
+                        contactErrorMessage
+                    },
                     subdomains[] {
                         slug,
                         enabled,

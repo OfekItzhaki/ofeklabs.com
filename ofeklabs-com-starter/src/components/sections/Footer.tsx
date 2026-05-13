@@ -8,7 +8,7 @@ interface FooterProps {
 }
 
 export function Footer({ config }: FooterProps) {
-  const navLinks = [
+  const navLinks = config.navLinks?.length ? config.navLinks : [
     { label: 'Products', href: '#products' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },

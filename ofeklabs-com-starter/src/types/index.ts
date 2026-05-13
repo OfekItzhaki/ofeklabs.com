@@ -25,7 +25,21 @@ export interface SiteConfig {
     ctaText: string;
     ctaTarget: string;
   };
+  navLinks?: NavLink[];
+  sectionHeadings?: SectionHeadings;
   subdomains?: SubdomainEntry[];
+}
+
+/** Customizable section headings from CMS */
+export interface SectionHeadings {
+  productsTitle?: string;
+  aboutLabel?: string;
+  aboutTitle?: string;
+  contactLabel?: string;
+  contactTitle?: string;
+  contactSubmitText?: string;
+  contactSuccessMessage?: string;
+  contactErrorMessage?: string;
 }
 
 /** A subdomain entry managed in Sanity CMS */

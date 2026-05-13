@@ -24,10 +24,10 @@ export default async function HomePage() {
       <Navigation config={siteConfig} />
       <main>
         <HeroSection config={siteConfig} />
-        <ProductsSection products={sortedProducts} />
+        <ProductsSection products={sortedProducts} headings={siteConfig.sectionHeadings} />
         {flagship && <FlagshipSection product={flagship} />}
-        <AboutSection config={siteConfig} />
-        <ContactSection config={siteConfig} />
+        <AboutSection config={siteConfig} headings={siteConfig.sectionHeadings} />
+        <ContactSection config={siteConfig} headings={siteConfig.sectionHeadings} />
       </main>
       <Footer config={siteConfig} />
     </>

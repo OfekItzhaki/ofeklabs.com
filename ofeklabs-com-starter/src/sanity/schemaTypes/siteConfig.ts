@@ -89,6 +89,40 @@ export const siteConfig = {
             ],
         },
         {
+            name: 'navLinks',
+            title: 'Navigation Links',
+            type: 'array',
+            description: 'Links shown in the navigation bar and footer',
+            of: [
+                {
+                    type: 'object',
+                    fields: [
+                        { name: 'label', title: 'Label', type: 'string', validation: (Rule: any) => Rule.required() },
+                        { name: 'href', title: 'Link Target', type: 'string', description: 'Section ID (e.g., #products) or URL', validation: (Rule: any) => Rule.required() },
+                    ],
+                    preview: {
+                        select: { title: 'label', subtitle: 'href' },
+                    },
+                },
+            ],
+        },
+        {
+            name: 'sectionHeadings',
+            title: 'Section Headings',
+            type: 'object',
+            description: 'Customizable headings for each page section',
+            fields: [
+                { name: 'productsTitle', title: 'Products Section Title', type: 'string', initialValue: 'Our Products' },
+                { name: 'aboutLabel', title: 'About Section Label', type: 'string', initialValue: 'About' },
+                { name: 'aboutTitle', title: 'About Section Title', type: 'string', initialValue: 'Who we are' },
+                { name: 'contactLabel', title: 'Contact Section Label', type: 'string', initialValue: 'Contact' },
+                { name: 'contactTitle', title: 'Contact Section Title', type: 'string', initialValue: 'Get in Touch' },
+                { name: 'contactSubmitText', title: 'Contact Submit Button', type: 'string', initialValue: 'Send Message' },
+                { name: 'contactSuccessMessage', title: 'Contact Success Message', type: 'string', initialValue: 'Thank you! Your message has been sent successfully.' },
+                { name: 'contactErrorMessage', title: 'Contact Error Message', type: 'string', initialValue: 'Something went wrong. Please try again later.' },
+            ],
+        },
+        {
             name: 'subdomains',
             title: 'Product Subdomains',
             type: 'array',

@@ -7,7 +7,7 @@ interface NavigationProps {
   config: SiteConfig;
 }
 
-const navLinks: NavLink[] = [
+const DEFAULT_NAV_LINKS: NavLink[] = [
   { label: 'Products', href: '#products' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
@@ -16,6 +16,7 @@ const navLinks: NavLink[] = [
 export function Navigation({ config }: NavigationProps) {
   const ctaText = config.hero?.ctaText ?? 'Explore Products';
   const ctaHref = config.hero?.ctaTarget ?? '#products';
+  const navLinks = config.navLinks?.length ? config.navLinks : DEFAULT_NAV_LINKS;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/90 backdrop-blur-lg border-b border-white/5">
@@ -29,7 +30,7 @@ export function Navigation({ config }: NavigationProps) {
         </a>
 
         {/* Desktop navigation links */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav aria-label="Main navigation" className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
