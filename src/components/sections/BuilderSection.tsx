@@ -13,10 +13,10 @@ export function BuilderSection() {
             </h2>
             <div className="space-y-4 text-[var(--muted)] leading-relaxed">
               <p>
-                I run OfekLabs as a one-person operation. Every system is architected, built, tested, deployed, and maintained by me — from the initial schema design through to production monitoring.
+                I run OfekLabs as a one-person operation. Every system goes from initial architecture through to production — schema design, API layer, deployment pipeline, monitoring. All one person, all the way through.
               </p>
               <p>
-                The focus is backend-heavy: constraint solvers, multi-tenant data isolation, token-based auth, job queues, real-time sync. The frontend ships too, but the hard problems live in the infrastructure.
+                The focus is backend-heavy: constraint solvers, multi-tenant data isolation, token-based auth, job queues, real-time sync. The frontend ships clean, but the hard problems are in the infrastructure underneath.
               </p>
             </div>
 

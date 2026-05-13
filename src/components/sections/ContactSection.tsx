@@ -78,7 +78,7 @@ export default function ContactSection({ config, headings }: ContactSectionProps
                 Let&apos;s talk
               </h2>
               <p className="mt-3 text-[var(--muted)]">
-                Building something complex? Have a technical problem that needs proper architecture? I&apos;m open to conversations.
+                Working on something complex? Need proper architecture for a technical problem? Reach out directly.
               </p>
             </div>
 

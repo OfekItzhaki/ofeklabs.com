@@ -2,12 +2,12 @@ import { Container } from '@/components/ui/Container';
 import ScrollReveal from '@/components/motion/ScrollReveal';
 
 const capabilities = [
-  { label: 'SaaS Products', detail: 'Multi-tenant platforms with auth, billing, and real user workflows' },
-  { label: 'Scheduling Systems', detail: 'Constraint-optimization engines for fair, automated shift distribution' },
-  { label: 'Authentication & Identity', detail: 'JWT, refresh tokens, role-based access, session management' },
-  { label: 'Backend Architecture', detail: 'REST APIs, WebSockets, job queues, database design, caching layers' },
-  { label: 'Infrastructure', detail: 'CI/CD pipelines, containerization, monitoring, zero-downtime deploys' },
-  { label: 'Frontend Engineering', detail: 'React/Next.js, server components, real-time UI, mobile-first design' },
+  { label: 'SaaS Products', detail: 'Multi-tenant platforms with authentication, billing, and real user workflows' },
+  { label: 'Scheduling Systems', detail: 'Constraint-optimization engines that generate fair, automated shift distribution' },
+  { label: 'Authentication & Identity', detail: 'Token-based auth with refresh flows, role-based access, and session lifecycle management' },
+  { label: 'Backend Architecture', detail: 'API design, WebSocket layers, background job processing, and data modeling' },
+  { label: 'Infrastructure', detail: 'CI/CD pipelines, containerized deploys, health monitoring, and zero-downtime releases' },
+  { label: 'Frontend Engineering', detail: 'React and Next.js applications with server components, real-time updates, and mobile-first layouts' },
 ];
 
 export function CapabilitiesSection() {
@@ -21,7 +21,7 @@ export function CapabilitiesSection() {
               Systems we build
             </h2>
             <p className="mt-4 text-[var(--muted)] max-w-lg">
-              Each product starts from a real operational problem. The work spans the full stack, but the core is always backend architecture and reliable infrastructure.
+              Each product starts from a real operational problem. The work is full-stack, with the heaviest lifting in backend architecture and infrastructure.
             </p>
           </div>
         </ScrollReveal>

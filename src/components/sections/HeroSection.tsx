@@ -30,7 +30,7 @@ export function HeroSection({ config }: HeroSectionProps) {
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-[var(--muted)] max-w-xl leading-relaxed mb-10">
-              An independent software lab focused on backend-heavy SaaS products. Scheduling engines, multi-tenant platforms, auth systems — designed around real constraints, shipped to real users.
+              Independent software lab. Backend-heavy SaaS products, scheduling engines, multi-tenant platforms, auth systems — designed around real constraints and shipped to real users.
             </p>
 
             {/* CTAs */}
