@@ -7,8 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "vitest related --run"
+    ]
   },
   "dependencies": {
     "@sanity/image-url": "^2.0.3",
@@ -35,6 +44,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "fast-check": "^4.5.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.4",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.6"

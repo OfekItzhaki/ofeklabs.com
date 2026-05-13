@@ -1,58 +1,126 @@
-# OfekLabs.com Starter Kit
+# OfekLabs.com
 
-This folder contains proven patterns and reference implementations from the ofeklabs.dev project.
-Use these as a starting point for the new ofeklabs.com landing page.
+Professional landing page for OfekLabs — built with Next.js 16, Sanity CMS, and Tailwind CSS v4.
 
-## What's Included
+## Overview
+
+Single-page landing page with a "Quiet Confidence" design direction (think Linear, Vercel, Raycast). All content is CMS-driven via Sanity Studio. The site auto-discovers products from configured subdomains.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router, Server Components)
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS v4
+- **CMS**: Sanity
+- **Animations**: Framer Motion
+- **Testing**: Vitest + fast-check (property-based)
+- **CI/CD**: GitHub Actions
+
+## Prerequisites
+
+- Node.js 22+
+- npm 10+
+- A Sanity project (free tier works)
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/OfekItzhaki/ofeklabs.com.git
+cd ofeklabs.com/ofeklabs-com-starter
+
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.local.example .env.local
+# Edit .env.local with your Sanity project ID
+```
+
+## Configuration
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NEXT_PUBLIC_SITE_URL` | Production URL | Yes |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sanity project ID | Yes |
+| `NEXT_PUBLIC_SANITY_DATASET` | Sanity dataset name | Yes |
+| `RESEND_API_KEY` | Resend API key for contact form | No |
+
+## Usage
+
+```bash
+# Development server
+npm run dev
+
+# Run tests
+npm test
+
+# Type check
+npm run typecheck
+
+# Lint
+npm run lint
+
+# Production build
+npm run build
+npm start
+```
+
+## Testing
+
+Property-based tests using Vitest + fast-check:
+
+```bash
+npm test              # Run all tests once
+npm run test:watch    # Watch mode
+```
+
+## Project Structure
 
 ```
-ofeklabs-com-starter/
-├── docs/
-│   ├── OFEKLABS_COM_PLAN.md      # Full project plan with sections, design, and phases
-│   └── HORIZON_STANDARD.md       # Architecture standard (copy to root as ARCHITECTURE.md)
-├── src/
-│   ├── lib/sanity.ts             # Sanity client + query functions
-│   ├── config/
-│   │   ├── site-content.ts       # CMS data fetching layer
-│   │   └── urls.ts               # URL centralization module
-│   ├── sanity/schemaTypes/
-│   │   ├── index.ts              # Schema registry
-│   │   ├── product.ts            # Product schema (with screenshot field)
-│   │   └── siteConfig.ts         # Site config schema (with legal links)
-│   └── app/studio/[[...tool]]/
-│       └── page.tsx              # Sanity Studio route
-├── sanity.config.ts              # Sanity configuration
-├── vitest.config.ts              # Test configuration
-├── package.json                  # Dependencies (no 3D/particle libs)
-├── .env.local.example            # Environment variables template
-└── README.md                     # This file
+src/
+├── app/                    # Next.js App Router pages
+│   ├── api/health/         # Health check endpoint
+│   ├── studio/             # Sanity Studio
+│   ├── globals.css         # Tailwind + theme
+│   ├── layout.tsx          # Root layout with metadata
+│   └── page.tsx            # Home page orchestrator
+├── components/
+│   ├── motion/             # Animation components (Client)
+│   ├── sections/           # Page sections (Server)
+│   └── ui/                 # Reusable UI components
+├── config/                 # Site content + URL utilities
+├── lib/                    # Sanity client + utilities
+├── sanity/                 # Sanity schema definitions
+├── types/                  # TypeScript interfaces
+└── __tests__/              # Property-based tests
 ```
 
-## How to Use
+## Deployment
 
-1. Create a new Next.js project: `npx create-next-app@latest ofeklabs-com --typescript --tailwind --app`
-2. Copy the `src/` files into your new project
-3. Copy `sanity.config.ts`, `vitest.config.ts` to root
-4. Copy `.env.local.example` and fill in your values
-5. Copy `docs/HORIZON_STANDARD.md` to root as `ARCHITECTURE.md`
-6. Run `npm install` with the dependencies from `package.json`
-7. Set up your Sanity project at https://sanity.io/manage
-8. Start building sections following the plan in `docs/OFEKLABS_COM_PLAN.md`
+Deploy to Vercel:
 
-## Key Differences from ofeklabs.dev
+1. Connect the GitHub repository to Vercel
+2. Set the root directory to `ofeklabs-com-starter`
+3. Add environment variables in Vercel dashboard
+4. Deploy
 
-- No `@react-three/fiber`, `@react-three/drei`, `three` (no 3D effects)
-- No interactive terminal component
-- Product schema includes `screenshot` field for product images
-- SiteConfig schema includes `legal` field for privacy/terms links
-- SiteConfig schema includes `name`, `tagline`, `description` for company info
-- URL module defaults to `ofeklabs.com` instead of `ofeklabs.dev`
+## Health Check
 
-## Architecture Principles
+```
+GET /api/health
+```
 
-1. **Zero hardcoded content** — Everything from Sanity CMS
-2. **Dynamic rendering** — Fresh data on every request
-3. **Server Components** — Only `"use client"` when needed
-4. **Centralized URLs** — All links managed in one place
-5. **Type safety** — No `any` types
-6. **Conventional commits** — `type(scope): description`
+Returns service status, version, and dependency health.
+
+## Contributing
+
+1. Create a feature branch: `git checkout -b feat/description`
+2. Follow conventional commits: `feat(scope): description`
+3. Ensure tests pass: `npm test`
+4. Ensure build succeeds: `npm run build`
+5. Push and create a PR
+
+## License
+
+Private — OfekLabs © 2026
