@@ -40,6 +40,7 @@ body {
     linear-gradient(rgba(128, 128, 128, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(128, 128, 128, 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
+  background-position: -1px -1px;
 }
 
 [data-theme="light"] .grid-pattern {
