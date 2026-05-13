@@ -31,6 +31,11 @@ export function Constellation() {
       return isLight ? '37, 99, 235' : '59, 130, 246';
     }
 
+    function getOpacityMultiplier() {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      return isLight ? 2.5 : 1;
+    }
+
     let animationId: number;
     const points: Point[] = [];
     const numPoints = 40;
@@ -76,6 +81,7 @@ export function Constellation() {
 
       // Draw connections
       const color = getColor();
+      const opMult = getOpacityMultiplier();
       for (let i = 0; i < points.length; i++) {
         for (let j = i + 1; j < points.length; j++) {
           const dx = points[i].x - points[j].x;
@@ -83,7 +89,7 @@ export function Constellation() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDistance) {
-            const opacity = (1 - dist / connectionDistance) * 0.15;
+            const opacity = (1 - dist / connectionDistance) * 0.15 * opMult;
             ctx!.beginPath();
             ctx!.moveTo(points[i].x, points[i].y);
             ctx!.lineTo(points[j].x, points[j].y);
@@ -98,7 +104,7 @@ export function Constellation() {
       for (const point of points) {
         ctx!.beginPath();
         ctx!.arc(point.x, point.y, 1.5, 0, Math.PI * 2);
-        ctx!.fillStyle = `rgba(${color}, 0.4)`;
+        ctx!.fillStyle = `rgba(${color}, ${0.4 * opMult})`;
         ctx!.fill();
       }
 

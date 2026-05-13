@@ -30,7 +30,7 @@ const DEFAULT_SITE_CONFIG: DefaultSiteConfig = {
         ctaText: "Explore Products",
         ctaTarget: "#products",
     },
-    description: "OfekLabs builds developer-first productivity tools. We focus on quality, reliability, and seamless workflows that help teams ship faster.",
+    description: "OfekLabs is all about innovation. We focus on quality, reliability, and seamless workflows that solve real-world problems.",
     legal: {
         privacy: "",
         terms: "",
