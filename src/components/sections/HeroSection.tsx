@@ -19,18 +19,18 @@ export function HeroSection({ config }: HeroSectionProps) {
             {/* Status line */}
             <div className="flex items-center gap-3 mb-8">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-sm font-mono text-[var(--muted)]">Building in production</span>
+              <span className="text-sm font-mono text-[var(--muted)]">Shipping production software</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--foreground)] leading-[1.1] mb-6">
-              Software lab.<br />
-              <span className="text-[var(--muted)]">Systems that ship.</span>
+              OfekLabs builds<br />
+              <span className="text-[var(--muted)]">operational software.</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-[var(--muted)] max-w-xl leading-relaxed mb-10">
-              OfekLabs builds production-grade SaaS products and backend systems — scheduling engines, multi-tenant platforms, authentication flows. Designed for real operations, not pitch decks.
+              An independent software lab focused on backend-heavy SaaS products. Scheduling engines, multi-tenant platforms, auth systems — designed around real constraints, shipped to real users.
             </p>
 
             {/* CTAs */}

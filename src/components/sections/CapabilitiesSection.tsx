@@ -18,10 +18,10 @@ export function CapabilitiesSection() {
           <div className="mb-12">
             <p className="text-sm font-mono text-[var(--accent)] mb-3">// capabilities</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] tracking-tight">
-              What gets built here
+              Systems we build
             </h2>
             <p className="mt-4 text-[var(--muted)] max-w-lg">
-              Full-stack systems designed for production. Not prototypes, not demos — software that runs reliably for real users.
+              Each product starts from a real operational problem. The work spans the full stack, but the core is always backend architecture and reliable infrastructure.
             </p>
           </div>
         </ScrollReveal>

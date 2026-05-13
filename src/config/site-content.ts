@@ -25,12 +25,12 @@ const DEFAULT_SITE_CONFIG: DefaultSiteConfig = {
         linkedin: "https://linkedin.com/in/ofekitzhaki",
     },
     hero: {
-        headline: "Independent software lab. Production-grade systems.",
-        subheadline: "OfekLabs designs and ships complete software products — from authentication and scheduling to workflow platforms. Built for reliability, not demos.",
+        headline: "OfekLabs builds operational software.",
+        subheadline: "An independent software lab focused on backend-heavy SaaS products. Scheduling engines, multi-tenant platforms, auth systems — designed around real constraints, shipped to real users.",
         ctaText: "View Products",
         ctaTarget: "#products",
     },
-    description: "OfekLabs is a one-person software lab focused on building production-grade SaaS products and systems. Every product is designed, built, and shipped end-to-end with the same standards expected from a well-run engineering team.",
+    description: "OfekLabs is an independent software lab building production-grade SaaS products and backend systems. Every product is architected, built, and operated end-to-end — from database design through deployment and monitoring.",
     legal: {
         privacy: "",
         terms: "",

@@ -9,14 +9,14 @@ export function BuilderSection() {
           <div className="max-w-2xl">
             <p className="text-sm font-mono text-[var(--accent)] mb-3">// builder</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] tracking-tight mb-6">
-              One engineer. Full stack. End to end.
+              Solo lab. Production standards.
             </h2>
             <div className="space-y-4 text-[var(--muted)] leading-relaxed">
               <p>
-                OfekLabs is a one-person software lab. I architect, build, and operate production systems — from database schema and API design to deployment pipelines and monitoring.
+                I run OfekLabs as a one-person operation. Every system is architected, built, tested, deployed, and maintained by me — from the initial schema design through to production monitoring.
               </p>
               <p>
-                Backend-heavy by nature: multi-tenant SaaS, constraint-solving algorithms, auth systems, real-time infrastructure. Every product ships with the same rigor you&apos;d expect from a well-staffed engineering team.
+                The focus is backend-heavy: constraint solvers, multi-tenant data isolation, token-based auth, job queues, real-time sync. The frontend ships too, but the hard problems live in the infrastructure.
               </p>
             </div>
 

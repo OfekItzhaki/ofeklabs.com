@@ -75,10 +75,10 @@ export default function ContactSection({ config, headings }: ContactSectionProps
             <div className="mb-8">
               <p className="text-sm font-mono text-[var(--accent)] mb-3">// contact</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] tracking-tight">
-                Get in touch
+                Let&apos;s talk
               </h2>
               <p className="mt-3 text-[var(--muted)]">
-                Have a project in mind, or want to discuss a technical problem? Reach out.
+                Building something complex? Have a technical problem that needs proper architecture? I&apos;m open to conversations.
               </p>
             </div>
 
