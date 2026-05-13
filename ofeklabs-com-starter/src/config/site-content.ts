@@ -1,5 +1,6 @@
 import { getProducts, getSiteConfig } from '@/lib/sanity';
-import type { SiteConfig, DefaultSiteConfig } from '@/types';
+import { getProductsFromSubdomains } from '@/lib/subdomain-scraper';
+import type { SiteConfig, DefaultSiteConfig, Product } from '@/types';
 
 /**
  * SITE CONFIGURATION
@@ -73,15 +74,29 @@ export async function getSiteConfiguration(): Promise<SiteConfig> {
             ctaText: config.hero?.ctaText || DEFAULT_SITE_CONFIG.hero.ctaText,
             ctaTarget: config.hero?.ctaTarget || DEFAULT_SITE_CONFIG.hero.ctaTarget,
         },
+        navLinks: config.navLinks,
+        sectionHeadings: config.sectionHeadings,
+        subdomains: config.subdomains,
     };
 }
 
 /**
- * Get products from Sanity CMS
+ * Get products from Sanity CMS, merged with auto-discovered subdomain products.
+ * Sanity products take priority (by ID) over scraped ones.
  */
-export async function getProductsList() {
-    const products = await getProducts();
-    return products || [];
+export async function getProductsList(config?: SiteConfig): Promise<Product[]> {
+    const [sanityProducts, scrapedProducts] = await Promise.all([
+        getProducts(),
+        getProductsFromSubdomains(config?.subdomains),
+    ]);
+
+    const products = sanityProducts || [];
+
+    // Merge: Sanity products override scraped ones with same ID
+    const sanityIds = new Set(products.map((p: Product) => p.id));
+    const uniqueScraped = scrapedProducts.filter((p) => !sanityIds.has(p.id));
+
+    return [...products, ...uniqueScraped];
 }
 
 // Export for backward compatibility and type reference

@@ -11,10 +11,8 @@ import { sortProducts } from '@/lib/utils';
 export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
-  const [siteConfig, products] = await Promise.all([
-    getSiteConfiguration(),
-    getProductsList(),
-  ]);
+  const siteConfig = await getSiteConfiguration();
+  const products = await getProductsList(siteConfig);
 
   const sortedProducts = sortProducts(products);
   const flagship = sortedProducts.length > 0 ? sortedProducts[0] : null;
