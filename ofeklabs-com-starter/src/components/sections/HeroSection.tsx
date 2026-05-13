@@ -16,11 +16,8 @@ export function HeroSection({ config }: HeroSectionProps) {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden"
+      className="relative min-h-[80vh] flex items-center justify-center pt-20 overflow-hidden"
     >
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--background)] to-transparent pointer-events-none" />
-
       <Container>
         <FadeIn duration={400}>
           <div className="relative z-10 flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
